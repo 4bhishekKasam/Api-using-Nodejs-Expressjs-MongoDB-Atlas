@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const uri =
-  "mongodb://abhi_madmax:abhi@190394@cluster0-shard-00-00-uauyv.mongodb.net:27017,cluster0-shard-00-01-uauyv.mongodb.net:27017,cluster0-shard-00-02-uauyv.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true";
+const dbURI =
+  "mongodb://abhi_madmax:abhi190394@cluster0-shard-00-00-1xohs.mongodb.net:27017,cluster0-shard-00-01-1xohs.mongodb.net:27017,cluster0-shard-00-02-1xohs.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true";
 
 const options = {
   reconnectTries: Number.MAX_VALUE,
@@ -10,16 +10,15 @@ const options = {
 
 mongoose
   .connect(
-    uri,
+    dbURI,
     { useNewUrlParser: true }
-    
   )
   .then(
     () => {
-      console.log("connected to db successfully");
+      console.log("Database connection established!");
     },
     err => {
-      console.log("Error while connecting to db", err);
+      console.log("Error connecting Database instance due to: ", err);
     }
   );
 
